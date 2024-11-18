@@ -1,6 +1,7 @@
 import React, { useState} from "react";
-import { StyleSheet, TextInput, View, Text} from "react-native";
+import { StyleSheet, TextInput, View, Text, selectedValue} from "react-native";
 import { Button } from "./Button/Button";
+import { Picker } from "@react-native-picker/picker";
 
 import { useForm, Controller} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
@@ -27,6 +28,24 @@ export default function App() {
       <View style={styles.fundo}>
          
         <Text style={styles.title}>Cadastrar</Text>
+
+        <Text>Data de nascimento</Text>
+
+
+        <View style={styles.container}>
+      <Text style={styles.label}>Selecione uma opção:</Text>
+      <Picker
+        selectedValue={selectedValue}
+        style={styles.picker}
+        onValueChange={(itemValue) => setSelectedValue(itemValue)}
+      >
+        <Picker.Item label="Opção 1" value="option1" />
+        <Picker.Item label="Opção 2" value="option2" />
+        <Picker.Item label="Opção 3" value="option3" />
+      </Picker>
+      <Text style={styles.selectedText}>Selecionado: {selectedValue}</Text>
+    </View>
+
 
         <Text style={styles.subtitulo}>Usuario</Text>
         <Controller
