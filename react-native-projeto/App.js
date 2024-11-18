@@ -28,7 +28,7 @@ export default function App() {
          
         <Text style={styles.title}>Cadastrar</Text>
 
-
+        <Text style={styles.subtitulo}>Usuario</Text>
         <Controller
             control={control}
             name="username"
@@ -47,6 +47,7 @@ export default function App() {
       />
       
       {errors.username && <Text style={styles.labelError}>{errors.username?.message}</Text>}
+      <Text style={styles.subtitulo2}>Senha</Text>
         <Controller
             control={control}
             name="password"
@@ -66,10 +67,10 @@ export default function App() {
       />
         {errors.password && <Text style={styles.labelError}>{errors.password?.message}</Text>}
         <Button
-          variant="outline"
+          variant="primary"
           style={styles.button}
           onPress={handleSubmit(handleLogIn)}
-          title="Entrar"
+          title="Cadastrar-se"
         />
 
         <Text style={styles.fala}>
@@ -136,5 +137,17 @@ const styles = StyleSheet.create({
     color:'white',
     fontSize:16,
     paddingTop:10,
+  },
+  subtitulo:{
+    color:'white',
+    paddingBottom:5,
+    paddingRight:257,
+    fontSize:14,
+  },
+  subtitulo2:{
+    color:'white',
+    paddingBottom:5,
+    paddingRight:268,
+    fontSize:14,
   }
 });

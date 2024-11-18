@@ -11,7 +11,7 @@ const schema = yup.object({
   password: yup.string().min(8,'Nome de usuario ou senha incorretos').required('Requer nome de usuário e senha'),
 })
 
-const Login = () => {
+const LoginScreen = () => {
     const { control, handleSubmit, formState: { errors } } = useForm({ 
       resolver: yupResolver(schema)
     })
@@ -135,4 +135,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Login;
+export default LoginScreen;

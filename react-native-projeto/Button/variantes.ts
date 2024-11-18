@@ -20,10 +20,10 @@ interface ButtonStyle {
   const buttonPrimary: ButtonVariant = {
     enabled: {
       button: {
-        backgroundColor: "#550AB1",
+        backgroundColor: "white",
       },
       title: {
-        color: "#FFF",
+        color: "black",
       },
       icon: {
         color: "#FFF",

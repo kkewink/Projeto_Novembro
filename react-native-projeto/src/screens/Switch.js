@@ -4,7 +4,7 @@ import { Button } from "./Button/Button";
 
 const fundo = {uri:'https://images.rbxcdn.com/782b7fc18a24ee997efd9a7f02fa4bf9-bg_08072019.jpg'};
 
-export  function Switch() {
+export function SwitchScreen() {
   
 
   function onPressButton() {
@@ -58,3 +58,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+export default SwitchScreen;
