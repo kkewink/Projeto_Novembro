@@ -1,0 +1,43 @@
+const [selectedValue, setSelectedValue] = useState('option1');
+
+<View>
+      <Picker
+        selectedValue={selectedValue}
+        style={styles.pickerOP}
+      >
+        <Picker.Item label="Dia" />
+        <Picker.Item label="01" value="01" />
+        <Picker.Item label="02" value="02" />
+        <Picker.Item label="03" value="03" />
+      </Picker>
+
+      <Picker
+        selectedValue={selectedValue}
+        style={styles.pickerOP}
+      >
+        <Picker.Item label="Mês" />
+        <Picker.Item label="Janeiro" value="Janeiro" />
+        <Picker.Item label="Feveiro" value="Feveiro" />
+        <Picker.Item label="Março" value="Março" />
+      </Picker>
+      <Picker
+        selectedValue={selectedValue}
+        style={styles.pickerOP}
+      >
+        <Picker.Item label="Ano" />
+        <Picker.Item label="2000" value="2000" />
+        <Picker.Item label="2001" value="2001" />
+        <Picker.Item label="2002" value="2002" />
+      </Picker>
+    </View>
+
+
+STYLE
+    containerOP: {
+     flex: 1,
+      justifyContent: 'center',
+       alignItems: 'center'
+  },
+
+  labelOP: { color:'white',fontSize: 18,borderColor:'gray',border:5 },
+  pickerOP: { height: 50, width: 200,color:'white',backgroundColor:'#656668' },

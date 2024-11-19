@@ -9,13 +9,12 @@ import * as yup from 'yup'
 
 
 
-
 const schema = yup.object({
   username: yup.string().required('Requer nome de usuário e senha'),
   password: yup.string().min(8,'Nome de usuario ou senha incorretos').required('Requer nome de usuário e senha'),
 })
 
-export default function App() {
+export function SingScreen() {
     const { control, handleSubmit, formState: { errors } } = useForm({ 
       resolver: yupResolver(schema)
     })
@@ -23,7 +22,6 @@ export default function App() {
     function handleLogIn(data){
       console.log(data)
     }
-    const [selectedValue, setSelectedValue] = useState('option1');
 
   return (
       <View style={styles.container}>
@@ -33,36 +31,7 @@ export default function App() {
 
         <Text style={styles.subtitulo3}>Data de nascimento</Text>
 
-        <View>
-      <Picker
-        selectedValue={selectedValue}
-        style={styles.pickerOP}
-      >
-        <Picker.Item label="Dia" />
-        <Picker.Item label="01" value="01" />
-        <Picker.Item label="02" value="02" />
-        <Picker.Item label="03" value="03" />
-      </Picker>
 
-      <Picker
-        selectedValue={selectedValue}
-        style={styles.pickerOP}
-      >
-        <Picker.Item label="Mês" />
-        <Picker.Item label="Janeiro" value="Janeiro" />
-        <Picker.Item label="Feveiro" value="Feveiro" />
-        <Picker.Item label="Março" value="Março" />
-      </Picker>
-      <Picker
-        selectedValue={selectedValue}
-        style={styles.pickerOP}
-      >
-        <Picker.Item label="Ano" />
-        <Picker.Item label="2000" value="2000" />
-        <Picker.Item label="2001" value="2001" />
-        <Picker.Item label="2002" value="2002" />
-      </Picker>
-    </View>
 
 
         <Text style={styles.subtitulo}>Usuario</Text>
@@ -70,9 +39,6 @@ export default function App() {
             control={control}
             name="username"
             render={({ field: {onChange, onBlur, value} }) => (
-
-            
-          
           <TextInput 
             style={styles.input}
             onChangeText={onChange}
@@ -186,18 +152,12 @@ const styles = StyleSheet.create({
     paddingBottom:5,
     paddingRight:268,
     fontSize:14,
-  }, 
+  },
   subtitulo3:{
     color:'white',
     flex:1,
     paddingRight:180,
   },
-  containerOP: {
-    flex: 1,
-     justifyContent: 'center',
-      alignItems: 'center'
- },
-
- labelOP: { color:'white',fontSize: 18,borderColor:'gray',border:5 },
- pickerOP: { height: 50, width: 200,color:'white',backgroundColor:'#656668' },
 });
+
+export default SingScreen;
