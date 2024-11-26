@@ -86,9 +86,27 @@ interface ButtonStyle {
       icon: { color: "#FFF" },
     },
   };
+
+  export const buttonFriend: ButtonVariant ={
+    enabled:{
+      button:{
+        backgroundColor:'#393b3d',
+      },
+      title:{ color:'white'},
+      icon:{ color:'white'},
+    },
+    disabled: {
+      button: {
+        backgroundColor: "#B8B8B8",
+      },
+      title: { color: "#FFF" },
+      icon: { color: "#FFF" },
+    },
+  }
   
   export const variants = {
     primary: buttonPrimary,
     outline: buttonOutline,
     blackFriday: buttonBlackFriday,
+    friend:buttonFriend,
   };

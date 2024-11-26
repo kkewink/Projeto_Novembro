@@ -1,5 +1,5 @@
-import React, { useState} from "react";
-import {View, Text, TouchableOpacity,Image} from "react-native";
+import React, {useState} from "react";
+import {View, Text,TouchableOpacity,onPressButton} from "react-native";
 import { Button } from "./Button/Button";
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -31,21 +31,40 @@ export default function App() {
       </View>
         </Text>
 
-        <Image
-          source={{ uri: 'https://w7.pngwing.com/pngs/268/996/png-transparent-account-avatar-profile-profile-icon-profile-picture-user-user-profile-business-and-management-line-icon-thumbnail.png'}}
-          style={styles.Image}
-        />
-        <Icon name="people"/><Text style={styles.user}>Nome do Usuario</Text>
+        <View style={styles.user}>
 
 
+          <Text style={styles.userT}>[ImamgeDoUsuario] [Nome do usuario]</Text>
 
+          <Text style={styles.userT}>Amigos(0)</Text>  
+          <Button
+          style={styles.button}
+          iconName="adduser"
+          variant="friend"
+          onPress={onPressButton}
+          />
+          
 
+          <Text style={styles.userT}>Recomendados</Text>
+          <Text style={styles.userT}>[todos os jogos que existem]</Text>
+          <Text style={styles.userT}>Continue</Text>
+          <Text style={styles.userT}>[o qual o usuario clicou play]</Text>
 
+          <Text style={styles.create}>Criações</Text>
+          <Button
+          style={styles.buttonC}
+          iconName=""
+          variant="friend"
+          onPress={onPressButton}
+          title="+"
+          />
+          <Text style={styles.userT}>[criados pelo usuario]</Text>
 
+          <Text style={styles.userT}>Favoritos</Text>
+          <Text style={styles.userT}>[Jogos com favorito]</Text>
+          
 
-
-
-
+        </View>
       </View>
       </View>
   );
