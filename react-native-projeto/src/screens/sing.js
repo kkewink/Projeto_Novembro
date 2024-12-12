@@ -1,14 +1,13 @@
 import React, { useState} from "react";
 import { StyleSheet, TextInput, View, Text, selectedValue,TouchableOpacity} from "react-native";
-import { Button } from "./Button/Button";
+import { Button } from "../../Button/Button";
 import { Picker } from "@react-native-picker/picker";
 import { useForm, Controller} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
-
 import * as yup from 'yup'
+import styles from "../styles/cadastro.style";
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import styles from "./src/styles/cadastro.style";
 
 const schema = yup.object({
   username: yup.string().required('Requer nome de usuário e senha'),
@@ -16,7 +15,7 @@ const schema = yup.object({
 })
 
 
-export function SingScreen() {
+export default function Sing(){
   const { control, handleSubmit, formState: { errors } } = useForm({ 
     resolver: yupResolver(schema)
   })
@@ -27,6 +26,7 @@ export function SingScreen() {
   const [selectedValue, setSelectedValue] = useState('option1');
   const [selectedIcon, setSelectedIcon] = useState(null);
 
+  const navigation = useNavigation();
 return (
     <View style={styles.container}>
     <View style={styles.fundo}>
@@ -213,5 +213,3 @@ return (
     </View>
 );
 }
-
-export default SingScreen;

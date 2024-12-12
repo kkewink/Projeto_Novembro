@@ -1,72 +1,61 @@
-import React, {useState} from "react";
-import {View, Text,TouchableOpacity,onPressButton} from "react-native";
-import { Button } from "./Button/Button";
+import React, { useState } from 'react';
+import { View,Text ,TextInput, Button, StyleSheet } from 'react-native';
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
+export default function App({navigation}) {
+  const [gameName, setGameName] = useState('');
+  const [gameDescription, setGameDescription] = useState('');
 
-import styles from "./src/styles/home.style";
+  const handleSubmit = () => {
+    const newGame = {
+      name: gameName,
+      description: gameDescription,
+    };
 
+    // Envia o novo jogo para a tela "Home"
+    navigation.navigate('Home', { game: newGame });
+  };
 
-export default function App() {
-  const [selectedIcon, setSelectedIcon] = useState(null);
-  
   return (
-      <View style={styles.container}>
-      <View style={styles.fundo}>
-         
-        <Text style={styles.title}>Início
+    <View style={styles.container}>
+      <Text style={styles.texto}>Crianção de jogo</Text>
 
-        <View style={styles.genContainer}>
-      <TouchableOpacity
-      style={[
-        styles.iconContainer,
-        selectedIcon === 'iconM' && styles.selected,
-        ]}
-       onPress={() => setSelectedIcon('icon1')}
-    >
-      <Icon name="search" size={30} color={selectedIcon === 'icon1' ? 'white' : 'white'} />
-      <Icon name="money" size={30} color={selectedIcon === 'icon1' ? 'white' : 'white'} />
-      <Icon name="email" size={30} color={selectedIcon === 'icon1' ? 'white' : 'white'} />
-      </TouchableOpacity>
-      </View>
-        </Text>
-
-        <View style={styles.user}>
-
-
-          <Text style={styles.userT}>[ImamgeDoUsuario] [Nome do usuario]</Text>
-
-          <Text style={styles.userT}>Amigos(0)</Text>  
-          <Button
-          style={styles.button}
-          iconName="adduser"
-          variant="friend"
-          onPress={onPressButton}
-          />
-          
-
-          <Text style={styles.userT}>Recomendados</Text>
-          <Text style={styles.userT}>[todos os jogos que existem]</Text>
-          <Text style={styles.userT}>Continue</Text>
-          <Text style={styles.userT}>[o qual o usuario clicou play]</Text>
-
-          <Text style={styles.create}>Criações</Text>
-          <Button
-          style={styles.buttonC}
-          iconName=""
-          variant="friend"
-          onPress={onPressButton}
-          title="+"
-          />
-          <Text style={styles.userT}>[criados pelo usuario]</Text>
-
-          <Text style={styles.userT}>Favoritos</Text>
-          <Text style={styles.userT}>[Jogos com favorito]</Text>
-          
-
-        </View>
-      </View>
-      </View>
+      <TextInput
+        style={styles.input}
+        placeholder="Nome do Jogo"
+        placeholderTextColor={'white'}
+        value={gameName}
+        onChangeText={setGameName}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Descrição do Jogo"
+        placeholderTextColor={'white'}
+        value={gameDescription}
+        onChangeText={setGameDescription}
+      />
+      <Button title="Criar Jogo" onPress={handleSubmit} />
+    </View>
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+    backgroundColor:'#222427',
+  },
+  texto:{
+    color:'white',
+    fontWeight:'bold',
+    fontSize:40,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 20,
+    color:'white',
+  },
+});

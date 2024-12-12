@@ -1,15 +1,13 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-
-const LoadScreen = () => {
+export default function Welcome(){
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>
         ROBLOX
       </Text>
-      <Text style={styles.load}>carregando...</Text>
-      <StatusBar style="auto" />
+      <Button style={styles.button} title="Join App" onPress={() => navigation.navigate('Sign')}/>
     </View>
   );
 }
@@ -32,5 +30,3 @@ const styles = StyleSheet.create({
     color:'#778899'
   }
 });
-
-export default LoadScreen;

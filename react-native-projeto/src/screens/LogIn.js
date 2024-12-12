@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, TextInput, View, Text} from "react-native";
-import { Button } from "./Button/Button";
-
+import { Button } from "../../Button/Button";
 import { useForm, Controller} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -11,7 +10,7 @@ const schema = yup.object({
   password: yup.string().min(8,'Nome de usuario ou senha incorretos').required('Requer nome de usuário e senha'),
 })
 
-const LoginScreen = () => {
+export default function Login(){
     const { control, handleSubmit, formState: { errors } } = useForm({ 
       resolver: yupResolver(schema)
     })
@@ -19,6 +18,8 @@ const LoginScreen = () => {
       console.log(data)
     }
 
+
+    const navigation = useNavigation();
   return (
       <View style={styles.container}>
 
@@ -134,5 +135,3 @@ const styles = StyleSheet.create({
     paddingTop:10,
   }
 });
-
-export default LoginScreen;

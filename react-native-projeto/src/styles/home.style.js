@@ -57,6 +57,19 @@ const styles = StyleSheet.create({
         borderWidth:1,
         marginBottom:20,
       },
+      gameInfo: {
+        color:'white',
+        marginBottom: 20,
+      },
+      gameName: {
+        color:'white',
+        fontSize: 20,
+        fontWeight: 'bold',
+      },
+      gameDescription: {
+        fontSize: 16,
+        color: 'white',
+      },
 });
 
 export default styles;
